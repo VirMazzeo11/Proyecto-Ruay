@@ -47,12 +47,48 @@ if (!reduceMotion.matches) {
 }
 
 if (mobileMenuToggle && mobileMenu) {
+  const mobileMenuBreakpoint = window.matchMedia("(max-width: 1024px)");
+  let mobileMenuScrollY = 0;
+
+  const lockMobileMenuScroll = () => {
+    mobileMenuScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${mobileMenuScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+  };
+
+  const unlockMobileMenuScroll = () => {
+    const scrollTarget = mobileMenuScrollY;
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    window.scrollTo(0, scrollTarget);
+  };
+
   const setMobileMenuState = (isOpen) => {
+    const wasOpen = document.body.classList.contains("mobile-menu-open");
+
+    if (isOpen && !mobileMenuBreakpoint.matches) {
+      return;
+    }
+
     mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
     mobileMenuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
     mobileMenu.setAttribute("aria-hidden", String(!isOpen));
     mobileMenu.classList.toggle("is-open", isOpen);
     document.body.classList.toggle("mobile-menu-open", isOpen);
+
+    if (isOpen && !wasOpen) {
+      lockMobileMenuScroll();
+    }
+
+    if (!isOpen && wasOpen) {
+      unlockMobileMenuScroll();
+    }
   };
 
   mobileMenuToggle.addEventListener("click", () => {
@@ -69,8 +105,18 @@ if (mobileMenuToggle && mobileMenu) {
     }
   });
 
+  document.addEventListener("click", (event) => {
+    if (
+      document.body.classList.contains("mobile-menu-open") &&
+      !mobileMenu.contains(event.target) &&
+      !mobileMenuToggle.contains(event.target)
+    ) {
+      setMobileMenuState(false);
+    }
+  });
+
   window.addEventListener("resize", () => {
-    if (!window.matchMedia("(max-width: 768px)").matches) {
+    if (!mobileMenuBreakpoint.matches) {
       setMobileMenuState(false);
     }
   });
