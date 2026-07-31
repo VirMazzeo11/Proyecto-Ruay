@@ -258,7 +258,7 @@ if (heroImage && !reduceMotion.matches) {
     const rect = heroImage.parentElement.getBoundingClientRect();
     const viewport = window.innerHeight || document.documentElement.clientHeight;
     const progress = (viewport / 2 - (rect.top + rect.height / 2)) / viewport;
-    const range = isMobile ? 20 : 40;
+    const range = isMobile ? 8 : 40;
     const offset = Math.max(-range, Math.min(range, progress * range));
 
     heroImage.style.setProperty("--hero-parallax-y", `${offset.toFixed(2)}px`);
@@ -285,7 +285,7 @@ if (wholesaleHeroMedia && wholesaleHeroSlides.length > 0 && !reduceMotion.matche
     const rect = wholesaleHeroMedia.getBoundingClientRect();
     const viewport = window.innerHeight || document.documentElement.clientHeight;
     const progress = (viewport / 2 - (rect.top + rect.height / 2)) / viewport;
-    const range = isMobile ? 4 : 8;
+    const range = isMobile ? 0 : 8;
     const offset = Math.max(-range, Math.min(range, progress * range));
 
     wholesaleHeroSlides.forEach((slide) => {
