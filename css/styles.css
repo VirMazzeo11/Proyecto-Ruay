@@ -2669,7 +2669,8 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .products-intro {
-    width: calc(100% - 48px);
+    width: 100%;
+    max-width: 100%;
     height: auto;
     margin: 0 auto;
     padding: 38px 0 32px;
@@ -2677,13 +2678,13 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .products-section {
-    width: calc(100% + 48px);
-    max-width: none;
+    width: 100%;
+    max-width: 100%;
     height: auto;
     min-height: 0;
     max-height: none;
-    margin-left: -24px;
-    margin-right: -24px;
+    margin-left: 0;
+    margin-right: 0;
     overflow: visible;
     transform: none;
     clip-path: none;
@@ -2700,7 +2701,7 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .products-intro::before {
-    inset: 0 -24px;
+    inset: 0;
   }
 
   .products-intro h2 {
@@ -2711,7 +2712,9 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .product-block {
-    padding: 0 24px 54px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0 54px;
     height: auto;
     min-height: 0;
     max-height: none;
@@ -2726,6 +2729,8 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .product-card {
+    width: 100%;
+    max-width: 100%;
     height: auto;
     min-height: 0;
     max-height: none;
@@ -2736,12 +2741,16 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .product-card__image {
+    width: 100%;
+    max-width: 100%;
     height: auto;
     min-height: 0;
     max-height: none;
   }
 
   .product-card__image img {
+    width: 100%;
+    max-width: 100%;
     height: auto;
     max-height: none;
     object-fit: contain;
@@ -2750,6 +2759,8 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .product-card__content {
+    width: 100%;
+    max-width: 100%;
     height: auto;
     min-height: 0;
     max-height: none;
@@ -2764,6 +2775,7 @@ body.motion-ready .is-visible .reveal-button:active {
     margin-bottom: 30px;
     font-size: 38px;
     white-space: normal;
+    overflow-wrap: break-word;
   }
 
   .product-card__features {
@@ -2773,10 +2785,15 @@ body.motion-ready .is-visible .reveal-button:active {
 
   .product-card__features li,
   .product-card p {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     font-size: 18px;
+    overflow-wrap: break-word;
   }
 
   .product-card__button {
+    max-width: 100%;
     margin-top: 28px;
   }
 
