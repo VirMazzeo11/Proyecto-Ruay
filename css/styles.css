@@ -2597,6 +2597,15 @@ body.motion-ready .is-visible .reveal-button:active {
     padding: 0;
   }
 
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: rgba(29, 29, 27, 0.18);
+  }
+
   .hero__frame {
     left: 24px;
     top: 68px;
