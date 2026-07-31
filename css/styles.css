@@ -325,6 +325,15 @@ footer {
   transition: transform 230ms ease;
 }
 
+.home-header__menu-toggle,
+.mobile-menu {
+  display: none;
+}
+
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .home-header__instagram:hover span,
   .site-footer__links a:hover img {
@@ -821,7 +830,7 @@ footer {
 
 .product-card {
   width: min(1147px, 100%);
-  height: 511px;
+  height: 531px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -831,7 +840,7 @@ footer {
 
 .product-card__image {
   width: 100%;
-  height: 511px;
+  height: 531px;
   overflow: hidden;
   perspective: 1000px;
 }
@@ -899,10 +908,10 @@ footer {
 }
 
 .product-card__content {
-  height: 511px;
-  padding: 46px 52px 50px 55px;
+  height: 531px;
+  padding: 46px 52px 56px 55px;
   display: grid;
-  grid-template-rows: 96px 190px 104px 39px;
+  grid-template-rows: 96px 190px 118px 39px;
   align-content: start;
   background: #fff7ee url("../assets/images/texturas/textura-algodon7.jpg") center center / cover no-repeat;
   color: #1b1b1b;
@@ -1464,7 +1473,7 @@ footer {
 .elixir-section__divider {
   position: absolute;
   left: 50%;
-  top: 615px;
+  top: 636px;
   z-index: 1;
   width: min(1274px, calc(100% - 240px));
   transform: translateX(-50%);
@@ -2297,6 +2306,7 @@ body.motion-ready .is-visible .reveal-button:active {
     height: 88px;
     padding: 0 24px;
     flex-wrap: nowrap;
+    overflow: visible;
   }
 
   .home-header .brand img {
@@ -2309,10 +2319,132 @@ body.motion-ready .is-visible .reveal-button:active {
     flex: 0 1 auto;
     gap: 14px;
     padding-left: 0;
+    overflow: visible;
   }
 
-  .home-header__nav-link {
+  .home-header__nav-link,
+  .home-header__nav > .home-header__button,
+  .home-header__nav > .home-header__instagram {
     display: none;
+  }
+
+  .home-header__menu-toggle {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    padding: 0;
+    color: #658356;
+    background: transparent;
+    border: 2.5px solid #658356;
+    border-radius: 50%;
+    cursor: pointer;
+    transition:
+      color 240ms ease-out,
+      background-color 240ms ease-out,
+      border-color 240ms ease-out,
+      transform 240ms ease-out,
+      box-shadow 240ms ease-out;
+  }
+
+  .home-header__menu-toggle span,
+  .home-header__menu-toggle span::before,
+  .home-header__menu-toggle span::after {
+    width: 18px;
+    height: 2px;
+    display: block;
+    background: currentColor;
+    border-radius: 999px;
+    transition:
+      transform 240ms ease-out,
+      background-color 240ms ease-out;
+  }
+
+  .home-header__menu-toggle span {
+    position: relative;
+  }
+
+  .home-header__menu-toggle span::before,
+  .home-header__menu-toggle span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .home-header__menu-toggle span::before {
+    top: -6px;
+  }
+
+  .home-header__menu-toggle span::after {
+    top: 6px;
+  }
+
+  .home-header__menu-toggle[aria-expanded="true"] {
+    color: #fff7ee;
+    background: #658356;
+    border-color: #658356;
+  }
+
+  .home-header__menu-toggle[aria-expanded="true"] span {
+    background: transparent;
+  }
+
+  .home-header__menu-toggle[aria-expanded="true"] span::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .home-header__menu-toggle[aria-expanded="true"] span::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 88px;
+    right: 24px;
+    left: 24px;
+    z-index: 30;
+    display: grid;
+    padding: 18px 0;
+    overflow: hidden;
+    background: rgba(255, 247, 238, 0.97);
+    border: 1px solid rgba(101, 131, 86, 0.22);
+    border-radius: 8px;
+    box-shadow: 0 18px 36px rgba(29, 29, 27, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, -10px, 0);
+    transition:
+      opacity 240ms ease-out,
+      transform 240ms ease-out;
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .mobile-menu a {
+    padding: 13px 22px;
+    color: #1d1d1b;
+    font-family: "Crimson Text", "Crimson Pro", serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: left;
+    transition: color 220ms ease-out;
+  }
+
+  .mobile-menu a:hover,
+  .mobile-menu a:focus-visible {
+    color: #658356;
+    outline: none;
+  }
+
+  .mobile-menu a[aria-current="page"] {
+    color: #c35924;
   }
 
   .site-header {

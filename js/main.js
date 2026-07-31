@@ -8,6 +8,8 @@ const ceremonySlides = ceremonyCarousel ? Array.from(ceremonyCarousel.querySelec
 const wholesaleHeroMedia = document.querySelector(".wholesale-hero__media");
 const wholesaleHeroSlides = wholesaleHeroMedia ? Array.from(wholesaleHeroMedia.querySelectorAll(".wholesale-hero__slide")) : [];
 const heritageLeaves = Array.from(document.querySelectorAll(".heritage-leaf"));
+const mobileMenuToggle = document.querySelector(".home-header__menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
 const pageTransitionTargets = ["index.html", "venta-mayorista.html"];
 
 if (!reduceMotion.matches) {
@@ -41,6 +43,36 @@ if (!reduceMotion.matches) {
     window.setTimeout(() => {
       window.location.href = nextUrl.href;
     }, 400);
+  });
+}
+
+if (mobileMenuToggle && mobileMenu) {
+  const setMobileMenuState = (isOpen) => {
+    mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+    mobileMenuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    mobileMenu.setAttribute("aria-hidden", String(!isOpen));
+    mobileMenu.classList.toggle("is-open", isOpen);
+    document.body.classList.toggle("mobile-menu-open", isOpen);
+  };
+
+  mobileMenuToggle.addEventListener("click", () => {
+    setMobileMenuState(mobileMenuToggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMobileMenuState(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMobileMenuState(false);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (!window.matchMedia("(max-width: 768px)").matches) {
+      setMobileMenuState(false);
+    }
   });
 }
 
