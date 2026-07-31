@@ -2447,6 +2447,13 @@ body.motion-ready .is-visible .reveal-button:active {
     color: #c35924;
   }
 
+  .mobile-menu__separator {
+    --ruay-dots-color: #1d1d1b;
+    --ruay-dots-opacity: 1;
+    width: calc(100% - 44px);
+    margin: 18px 22px 14px;
+  }
+
   .site-header {
     flex-wrap: wrap;
     padding-top: 24px;
