@@ -2669,8 +2669,8 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .products-intro {
-    width: 100%;
-    max-width: 100%;
+    width: calc(100% - 48px);
+    max-width: 1084px;
     height: auto;
     margin: 0 auto;
     padding: 38px 0 32px;
@@ -2678,12 +2678,12 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .products-section {
-    width: 100%;
-    max-width: 100%;
+    width: 100vw;
+    max-width: 100vw;
     height: auto;
     min-height: 0;
     max-height: none;
-    margin-left: 0;
+    margin-left: calc(50% - 50vw);
     margin-right: 0;
     overflow: visible;
     transform: none;
@@ -2714,7 +2714,7 @@ body.motion-ready .is-visible .reveal-button:active {
   .product-block {
     width: 100%;
     max-width: 100%;
-    padding: 0 0 54px;
+    padding: 0 24px 54px;
     height: auto;
     min-height: 0;
     max-height: none;
