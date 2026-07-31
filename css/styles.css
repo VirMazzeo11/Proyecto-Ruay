@@ -2640,6 +2640,22 @@ body.motion-ready .is-visible .reveal-button:active {
     text-align: center;
   }
 
+  .products-section {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  body.motion-ready .products-section.reveal-section,
+  body.motion-ready .products-section .reveal-title,
+  body.motion-ready .products-section .reveal-copy,
+  body.motion-ready .products-section .reveal-image,
+  body.motion-ready .products-section .reveal-button,
+  body.motion-ready .products-section .reveal-card {
+    opacity: 1;
+    transform: none;
+  }
+
   .products-intro h2 {
     width: 100%;
     height: auto;
