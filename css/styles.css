@@ -2536,7 +2536,10 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .wholesale-hero__slide {
+    inset: -6px 0;
+    height: calc(100% + 12px);
     background-position: center center;
+    background-size: auto 100%;
   }
 
   .wholesale-content {
@@ -2604,6 +2607,13 @@ body.motion-ready .is-visible .reveal-button:active {
     display: none;
   }
 
+  .hero__image {
+    top: -24px;
+    height: 631px;
+    object-position: center center;
+    transform: translate3d(0, var(--hero-parallax-y, 0px), 0) scale(1.015);
+  }
+
   .hero__content {
     width: 100%;
   }
@@ -2667,9 +2677,16 @@ body.motion-ready .is-visible .reveal-button:active {
   }
 
   .products-section {
+    width: calc(100% + 48px);
+    max-width: none;
     height: auto;
     min-height: 0;
+    max-height: none;
+    margin-left: -24px;
+    margin-right: -24px;
     overflow: visible;
+    transform: none;
+    clip-path: none;
   }
 
   body.motion-ready .products-section.reveal-section,
@@ -2682,6 +2699,10 @@ body.motion-ready .is-visible .reveal-button:active {
     transform: none;
   }
 
+  .products-intro::before {
+    inset: 0 -24px;
+  }
+
   .products-intro h2 {
     width: 100%;
     height: auto;
@@ -2691,6 +2712,12 @@ body.motion-ready .is-visible .reveal-button:active {
 
   .product-block {
     padding: 0 24px 54px;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+    transform: none;
+    clip-path: none;
   }
 
   .product-block--green,
@@ -2701,24 +2728,36 @@ body.motion-ready .is-visible .reveal-button:active {
   .product-card {
     height: auto;
     min-height: 0;
+    max-height: none;
     grid-template-columns: 1fr;
+    overflow: visible;
+    transform: none;
+    clip-path: none;
   }
 
   .product-card__image {
     height: auto;
     min-height: 0;
+    max-height: none;
   }
 
   .product-card__image img {
     height: auto;
+    max-height: none;
     object-fit: contain;
+    animation: none;
+    transform: none;
   }
 
   .product-card__content {
     height: auto;
     min-height: 0;
+    max-height: none;
     padding: 34px 28px 36px;
     display: block;
+    overflow: visible;
+    transform: none;
+    clip-path: none;
   }
 
   .product-card h3 {
