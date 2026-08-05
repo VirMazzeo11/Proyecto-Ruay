@@ -272,13 +272,14 @@ footer {
 }
 
 .home-header__button {
-  width: 119px;
+  width: auto;
+  min-width: 119px;
   height: 39px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 119px;
-  padding: 0;
+  flex: 0 0 auto;
+  padding: 0 24px;
   background: #ffffff;
   color: #658356;
   border: 2.5px solid #658356;
@@ -796,7 +797,7 @@ body.mobile-menu-open {
 }
 
 .products-intro h2 {
-  width: min(760px, 100%);
+  width: min(1020px, 100%);
   height: auto;
   margin: 0 0 38px;
   color: #1b1b1b;
@@ -804,11 +805,20 @@ body.mobile-menu-open {
   font-size: 50px;
   font-weight: 400;
   line-height: normal;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .products-intro .about-section__text {
   width: min(1020px, 100%);
+}
+
+.products-intro__button {
+  width: auto;
+  min-width: 119px;
+  flex: 0 0 auto;
+  margin-top: 34px;
+  padding: 0 24px;
+  background: transparent;
 }
 
 .product-block {
@@ -2315,6 +2325,9 @@ body.motion-ready .is-visible .reveal-button:active {
 
   .origin-section__content p {
     width: 100%;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
   }
 
   .section-description {
